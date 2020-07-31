@@ -1,0 +1,10 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+	<div class="container text-center">
+		<h4 class="display-4 alert alert-success">Your payment of Rs.{{amount}} is successful</h4>
+		<p class="lead">You should receive a receipt to the email you provided shortly :)</p>
+		<hr>
+		<a class="btn btn-info" href="{% url 'home' %}">&#x2190;Back to Dashboard</a>
+	</div>
+{% endblock content %}

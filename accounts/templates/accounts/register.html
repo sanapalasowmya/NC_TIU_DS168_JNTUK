@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <title>Register</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f7f8fc;
+            color: #141c2c;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+        }
+
+        a{
+            color: #2762eb;
+            text-decoration: none;
+        }
+
+        .container{
+            background-color: #fff;
+            border-radius: 3px;
+            border: 20px solid #dce7ff;
+            width: 1000px;
+            box-shadow: 0 4px 5px rgba(0,0,0,0.1);
+            display: flex;
+        }
+
+        form{
+            border-right: 1px solid #ecf2ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            flex: 1;
+        }
+
+        .form-control{
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        label{
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input:not([type='checkbox']){
+            background-color: transparent;
+            border: 2px solid #ecf2ff;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 14px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .btn{
+            cursor: pointer;
+            background-color: #141c2c;
+            border: 2px solid #141c2c;
+            border-radius: 3px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 10px;
+            margin: 20px 0px;
+            width: 100%;
+        }
+
+        .btn-ghost{
+            background-color: transparent;
+            border-color: #ecf2ff;
+            color: #141c2c;
+        }
+
+        .btn img{
+            margin-right: 5px;
+            width: 20px;
+        }
+
+        .checkbox-container{
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: normal;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .checkbox-container label{
+            color: #7a7e8c;
+            font-weight: normal;
+        }
+
+        .checkbox-container a{
+            margin-left: auto;
+        }
+
+        .features{
+            flex: 1.5;
+            padding: 40px;
+        }
+
+        .feature{
+            padding-left: 30px;
+            margin: 60px 0;
+        }
+
+        .feature h3{
+            margin: 0;
+        }
+
+        .feature p{
+            font-size: 14px;
+            line-height: 1.8;
+            margin: 5px 0;
+        }
+
+        #messages{
+			background-color: grey;
+			color: #fff;
+			padding: 10px;
+			margin-top: 10px;
+		}
+
+        @media(max-width: 768px){
+            .container{
+                flex-direction: column;
+            }
+            form{
+                border-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-control">
+                <label>Username</label>
+                {{ form.username }}
+            </div>
+
+            <div class="form-control">
+                <label>Email</label>
+                {{ form.email }}
+            </div>
+
+            <div class="form-control">
+                <label>Password</label>
+                {{ form.password1 }}
+            </div>
+
+            <div class="form-control">
+                <label>Confirm Password</label>
+                {{ form.password2 }}
+            </div>
+
+            {{ form.errors }}
+            <button type="submit" class="btn">Register</button>
+            <small>Already have an account?<a href="{% url 'login' %}" style="margin-left:10px">Login</a></small>
+        </form>
+
+        <div class="features">
+            <div class="feature">
+                <h3>Fee Payment</h3>
+                <p>A modern solution for Manual Fee Collection System</p>
+            </div>
+            <div class="feature">
+                <h3>Check Fee Dues</h3>
+                <p>You can check your fee dues anytime</p>
+            </div>
+            <div class="feature">
+                <h3>Get Transfer Certificate</h3>
+                <p>You can get your Transfer Certificate within no time</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

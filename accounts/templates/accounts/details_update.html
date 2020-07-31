@@ -1,0 +1,9 @@
+{% extends 'accounts/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-info" style="margin-bottom:25px" type="submit" value="Update" >
+    </form>
+{% endblock %}

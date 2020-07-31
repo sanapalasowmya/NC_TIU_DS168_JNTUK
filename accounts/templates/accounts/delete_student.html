@@ -1,0 +1,12 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <p>Are you sure? You want to delete {{ student.name }}</p>
+        <div class="form-group">
+            <a class="btn btn-warning" href="{% url 'class_details' student.stuclass.id %}">Cancel</a>
+            <input class="btn btn-danger" type="submit" value="Delete">
+        </div>
+    </form>
+{% endblock %}

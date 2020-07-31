@@ -1,0 +1,27 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+    <div class="row">
+        {% for class in classnames %}
+            <div class="col-md-8">
+                <div class="card card-body">
+                    <a class="btn btn-info" href="{% url 'class_details' class.id %}">{{ class }}</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-body">
+                    <a class="btn btn-danger" href="{% url 'delete-class' class.id %}">Delete {{ class }}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <a href="{% url 'create-class' %}" class="btn btn-warning">Create Class</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

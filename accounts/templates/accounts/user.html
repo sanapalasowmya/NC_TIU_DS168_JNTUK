@@ -1,0 +1,18 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-2 col-lg-3"></div>
+        <div class="col-md-4 col-lg-3">
+            <div class="card card-body">
+                <h1 style="text-align:center;"><a href="{% url 'pay' %}" style="text-decoration:none;">Pay Fee</a></h1>
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3">
+            <div class="card card-body">
+                <h1 style="text-align:center;"><a href="{% url 'generatePdf' %}" style="text-decoration:none;">Get TC</a></h1>
+            </div>
+        </div>
+        <div class="col-md-2 col-lg-3"></div>
+    </div>
+{% endblock %}

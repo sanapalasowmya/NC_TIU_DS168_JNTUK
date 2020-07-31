@@ -1,0 +1,16 @@
+{% extends 'accounts/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <form action="" method="POST">
+        {% csrf_token %}
+            <div class="row">
+                <div class="col">
+                    {{ form.username|as_crispy_field }}
+                    {{ form.email|as_crispy_field }}
+                    {{ form.password1|as_crispy_field }}
+                    {{ form.password2|as_crispy_field }}
+                </div>
+            </div>
+        <input type="submit" class="btn btn-info"  style="margin-left:10px" value="Create User">
+    </form>
+{% endblock %}

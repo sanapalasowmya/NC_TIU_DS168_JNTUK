@@ -1,0 +1,11 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+    <p>Are you sure ? You wanna delete entire students data in {{ classname }}?</p>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <a class="btn btn-warning" href="{% url 'home' %}">No</a>
+            <input type="submit" class="btn btn-danger" value="Delete">
+        </div>
+    </form>
+{% endblock %}

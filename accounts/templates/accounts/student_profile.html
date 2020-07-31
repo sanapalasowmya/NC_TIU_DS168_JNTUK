@@ -1,0 +1,103 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+    <div class="row text-center">
+        {% if student.stuclass %}
+        <div class="col-md-2"></div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Name</h4></div>
+                    <p class="mx-2 my-2">{{student.name}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Email</h4></div>
+                    <p class="mx-2 my-2">{{user.email}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Class</h4></div>
+                    <p class="mx-2 my-2">{{student.stuclass}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Course</h4></div>
+                    <p class="mx-2 my-2">{{student.course}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Subject</h4></div>
+                    <p class="mx-2 my-2">{{student.subject}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Roll</h4></div>
+                    <p class="mx-2 my-2">{{student.roll}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Fee Paid</h4></div>
+                    <p class="mx-2 my-2">{{student.fee_paid}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Fee Due</h4></div>
+                    <p class="mx-2 my-2">{{diff}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Date of Birth </h4></div>
+                    <p class="mx-2 my-2">{{student.dob}}</p>
+                </div>
+            </div>
+        </div><div class="col-md-4 my-3">
+            <div class="card">
+                <div class="card-block">
+                    <div class="card-title"><h4>Date of Admission</h4></div>
+                    <p class="mx-2 my-2">{{student.dateofadmission}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+        {% else %}
+        <div class="container justify-content-center">
+            <div class="alert alert-danger text-center" role="alert">
+                <h3 class="display-4 mx-2 my-2">Update your Profile</h3>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

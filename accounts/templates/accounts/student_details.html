@@ -1,0 +1,73 @@
+{% extends 'accounts/main.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <br>
+    <div class="row">
+        <div class="col">
+            <div class="card card-body text-center">
+                <a class="btn btn-primary" href="{% url 'create-user' %}">Add Student</a>
+            </div>
+        </div>
+    </div>
+
+
+    <br>
+
+    <div class="row">
+        <div class="col">
+            <div class="card card-body">
+                <form action="" method="get">
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-2">
+                            {{ filter.form.name|as_crispy_field }}
+                        </div>
+                        <div class="col-md-2">
+                            {{ filter.form.roll|as_crispy_field }}
+                        </div>
+                        <div class="col-md-2">
+                            {{ filter.form.phone|as_crispy_field }}
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-primary my-4 " type="submit">Search</button>
+                        </div>
+                        <div class="col-md-2"></div>
+                    </div>
+              </form>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-body">
+                    <table class="table table-sm">
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll</th>
+                        <th>Fee Paid</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+
+                    {% for student in students %}
+                        <tr>
+                           <td>{{student.name}}</td>
+                            <td>{{student.roll}}</td>
+                            <td>{{student.fee_paid}}</td>
+                            <td>{{student.phone}}</td>
+                            <td>{{student.user.email}}</td>
+                            <td><a class="btn btn-info" href="{% url 'update_student' student.id %}">Update</a></td>
+                            <td><a class="btn btn-danger" href="{% url 'delete_student' student.id %}">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                  </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
