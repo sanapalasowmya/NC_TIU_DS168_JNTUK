@@ -3,12 +3,17 @@
 {% block content %}
     <div class="row">
         {% for class in classnames %}
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <div class="card card-body">
                     <a class="btn btn-info" href="{% url 'class_details' class.id %}">{{ class }}</a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
+                <div class="card card-body">
+                    <a class="btn btn-dark" href="{% url 'update-class' class.id %}">Update {{ class }}</a>
+                </div>
+            </div>
+            <div class="col-md-3">
                 <div class="card card-body">
                     <a class="btn btn-danger" href="{% url 'delete-class' class.id %}">Delete {{ class }}</a>
                 </div>

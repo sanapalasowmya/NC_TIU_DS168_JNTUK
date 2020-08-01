@@ -28,7 +28,7 @@ class GeneratePdf(View):
             template = loader.get_template("accounts/warnmessage.html")
             return HttpResponse(template.render())
         feepaid = student.fee_paid
-        if feepaid != request.user.student.stuclass.academicfee:
+        if feepaid < request.user.student.stuclass.academicfee:
             template = loader.get_template("accounts/warnpayment.html")
             return HttpResponse(template.render())
         template = get_template('invoice.html')
@@ -200,6 +200,18 @@ def deleteClass(request, pk):
         return redirect('home')
     context = {'classname': classname}
     return render(request, 'accounts/delete_class.html', context)
+
+
+@login_required(login_url='login')
+def updateClass(request, pk):
+    classname = Class.objects.get(id=pk)
+    form = ClassForm(instance=classname)
+    if request.method == 'POST':
+        form = ClassForm(request.POST)
+        if form.is_valid():
+            return redirect('home')
+    context = {'classname': classname, 'form': form}
+    return render(request, 'accounts/update_class.html', context)
 
 
 @login_required(login_url='login')

@@ -16,6 +16,7 @@ urlpatterns = [
     path('create_user/', views.createUser, name='create-user'),
     path('create_student/', views.createStudent, name='create-student'),
     path('delete_class/<str:pk>', views.deleteClass, name='delete-class'),
+    path('update_class/<str:pk>', views.updateClass, name='update-class'),
 
     path('student/', views.studentPage, name='student-page'),
     path('student_profile/<str:pk>', views.studentProfile, name='student-profile'),
